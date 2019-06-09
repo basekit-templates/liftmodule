@@ -13,25 +13,34 @@ body {
 .wrapper {
   width: 90%;
   margin: 0 5%;
-  .wrapper {
-    width: 100%;
-    margin: 0;
-  }
-}
 
-@media only screen and (min-width: 1140px) {
-  .wrapper {
+  @media only screen and (min-width: 1200px) {
     width: 960px; /* 1140px - 10% for margins */
     margin: 0 auto;
   }
 }
 
+.canvas-wrapper  {
+  position: relative;
+}
+
 .canvas  {
   background-color: darken(@color-swatch1,5%);
+  height: 100%;
+  left: 5%;
+  margin: 0;
   max-width: 1080px;
+  padding: 0;
+  position: absolute;
+  top: 0;
   width: 90%;
-  margin: 0 auto;
-  padding: 0 0 60px;
+  z-index: 1;
+
+  @media only screen and (min-width: 1200px) {
+    left: 50%;
+    margin-left: -540px;
+  }
+
   .widget {
     clear: both;
   }
@@ -43,7 +52,34 @@ body {
    =============================== */
 
 .main {
-  padding: 50px 0;
+  padding: 50px 0 60px;
+  position: relative;
+  z-index: 2;
+}
+
+#page-zones__main:empty,
+.empty-zone,
+.featurehome-zone,
+#page-zones__main > .widget:not(.row) {
+  margin-left: auto;
+  margin-right: auto;
+  width: ~"calc(100% * 0.9)";
+
+  @media only screen and (min-width: 481px) {
+    width: ~"calc(100% * 0.9 * 0.9)";
+  }
+
+  @media only screen and (min-width: 1200px) {
+    width: 960px;
+  }
+}
+
+#page-zones__main {
+  margin-bottom: 50px;
+
+  @media @tablet {
+    margin-bottom: 20px;
+  }
 }
 
 body.edit .widget.navigation, body.edit .widget.extendednavigation {
@@ -316,10 +352,19 @@ footer.bk-footer {
    FEATURE
    =============================== */
 
+.featurehome-zone {
+  margin-bottom: 50px;
+
+  .wrapper {
+    width: 100%;
+    margin: 0;
+  }
+}
+
 // Feature Widget
 .widget {
     &.feature {
-        margin: 0 0 50px;
+        margin: 0;
         .feature-bgimg,
         .feature-bgimg .content {
             height: 500px;
@@ -1610,10 +1655,11 @@ footer.bk-footer .widget.profile .bk-profile-socialicons span a {
   }
 
   .main {
-    padding: 20px 0;
+    padding: 20px 0 60px;
   }
 
   .canvas {
+    left: 0;
     width: 100%;
   }
 
@@ -1673,5 +1719,4 @@ footer.bk-footer .widget.profile .bk-profile-socialicons span a {
 
 }
 
-
-
+@import "@{templateLocal}/migration/migration.less";

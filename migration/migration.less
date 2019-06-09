@@ -1,0 +1,50 @@
+#migrated-site.edit {
+  .canvas {
+    @media only screen and (min-width: 1200px) {
+      left: 5%;
+      margin-left: 0;
+    }
+
+    @media only screen and (min-width: 1400px) {
+      left: 50%;
+      margin-left: -540px;
+    }
+  }
+
+  #page-zones__main:empty,
+  .empty-zone,
+  .featurehome-zone,
+  #page-zones__main > .widget:not(.row) {
+    @media only screen and (min-width: 1200px) {
+      width: ~"calc(100% * 0.9 * 0.9)";
+    }
+
+    @media only screen and (min-width: 1400px) {
+      width: 960px;
+    }
+  }
+
+  .wrapper {
+    @media only screen and (min-width: 1400px) {
+      width: 960px;
+      margin: 0 auto;
+    }
+  }
+}
+
+#migrated-site:not(.edit) {
+  .wrapper {
+    @media only screen and (min-width: 1200px) {
+      width: 960px;
+      margin: 0 auto;
+    }
+  }
+}
+
+#migrated-site {
+  .row:not(.widget):not(.row--width-no-padding) .row__container {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+  }
+}

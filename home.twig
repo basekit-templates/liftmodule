@@ -10,9 +10,10 @@
     </div>
 </header>
 
-<div class="canvas">
-    <div class="main wrapper clearfix">
-        <section>
+<div class="canvas-wrapper">
+    <div class="canvas"></div>
+    <div class="main clearfix">
+        <section class="featurehome-zone">
             {{widget('feature', 'featurehome', {"header": "profile", "strapline":"profile", "buttonText":"Lorem Ipsum","defaultBgImg": asset('images/feature-bg.jpg'), 'positionTopPercentage': '0','showBtn': true})|raw}}
         </section>
         {{zone('main')|raw}}
