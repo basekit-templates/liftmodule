@@ -41,10 +41,15 @@
   }
 }
 
+
+#migrated-site:not(.row-selection-mode) .row:not(.widget) {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1080px;
+}
+
 #migrated-site {
   .row:not(.widget):not(.row--width-no-padding) .row__container {
-    margin-left: 5%;
-    margin-right: 5%;
     width: 90%;
   }
 
@@ -56,3 +61,26 @@
     }
   }
 }
+
+
+// Readds spacing to the first widget in the zone - these values should replicate what was on the .main class in the template
+.edit #page-zones__main-overlay + .widget:not(.row),
+#page-zones__main > .widget:not(.row):first-child,
+#page-zones__main > .row + .widget:not(.row) {
+    margin-top: 50px;
+    
+    @media @tablet {
+        margin-top: 20px;
+    }
+}
+
+
+// Readds spacing to the last widget in the zone - these values should replicate what was on the .main class in the template
+#page-zones__main > .widget:not(.row):last-child {
+    margin-bottom: 60px;
+
+    @media @tablet {
+        margin-bottom: 20px;
+    }
+}
+
