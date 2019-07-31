@@ -1,0 +1,105 @@
+
+#migrated-site {
+    
+
+
+
+    //  Template - Stylesheet overrides
+    // ---------------------------------
+
+
+    .canvas,
+    .main {
+        padding: 0;
+    }
+
+    .main.wrapper {
+        margin: 0;
+        width: 100%;
+    }
+
+    .widget.feature {
+        margin-bottom: 0;
+        margin-top: 50px;
+
+        @media @mobile {
+            margin-top: 20px;
+        }
+    }
+
+
+
+
+    //  Migration - Container & Spacing
+    // -----------------------------------
+
+
+    // Readds wrapper values to widgets that aren't sections
+    .empty-zone,
+    #page-zones__main:empty,
+    #page-zones__main > .widget:not(.row),
+    .widget.feature,
+    .row:not(.widget):not(.row--width-no-padding) .row__container {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 960px;
+        width: 100%;
+        
+        @media only screen and (max-width: 1140px) {
+            width: 90%;
+        }
+    }
+
+
+    // Adds spacing to a section when a widget follows it
+    #page-zones__main > .row + .widget:not(.row) {
+        margin-top: 20px;
+    }
+
+
+    // Adds spacing to a widget when a section follows it
+    #page-zones__main > .widget:not(.row) + .row {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+
+    // Readds spacing to the first widget in the zone - these values should replicate what was on the .main class in the template
+    .edit #page-zones__main-overlay + .widget:not(.row),
+    #page-zones__main > .widget:not(.row):first-child {
+        margin-top: 50px;
+        
+        @media @tablet {
+            margin-top: 20px;
+        }
+    }
+
+
+    // Readds spacing to the last widget in the zone - these values should replicate what was on the .main class in the template
+    #page-zones__main > .widget:not(.row):last-child {
+        margin-bottom: 60px;
+    }
+
+
+    // Removed spacing from last section in the zone
+    #page-zones__main > .widget.row:last-child {
+        margin-bottom: 0;
+    }
+
+
+
+
+    //  Migration - Editor UI
+    // -----------------------------------
+
+
+    // Moves section controls over the site border
+    .top-level-overlay,
+    .row-overlay {
+
+        &:before,
+        &:after {
+            background-color: transparent;
+        }
+    }
+}
